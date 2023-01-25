@@ -1,0 +1,21 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: kong
+  name: basic-auth-user
+username: basic-auth-user
+credentials:
+  - basic-auth-user-creds
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: basic-auth-user-creds
+type: Opaque
+stringData:
+  kongCredType: basic-auth
+  username: basic-auth-user
+  secret: basic_secret

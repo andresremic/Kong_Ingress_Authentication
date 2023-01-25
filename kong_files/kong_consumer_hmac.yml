@@ -1,0 +1,21 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: hmac-user
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: hmac-user
+credentials:
+ - hmac-user-creds
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hmac-user-creds
+type: Opaque
+stringData:
+  kongCredType: hmac-auth
+  username: hmac-user
+  secret: hmac_secret

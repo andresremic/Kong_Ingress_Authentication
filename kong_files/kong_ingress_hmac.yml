@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo
+  annotations:
+    konghq.com/strip-path: "true"
+    kubernetes.io/ingress.class: kong
+    konghq.com/plugins: httpbin-hmac-auth #, httpbin-basic-auth, httpbin-key-auth
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /foo
+        pathType: Prefix
+        backend:
+          service:
+            name: httpbin
+            port: 
+              number: 80
+      - path: /bar
+        pathType: Prefix
+        backend:
+          service:
+            name: echo
+            port: 
+              number: 80

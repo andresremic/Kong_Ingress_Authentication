@@ -1,0 +1,10 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: httpbin-key-auth
+config:
+  hide_credentials: true
+  key_names:
+    - apikey
+  #anonymous: anonymous  #optional anon access
+plugin: key-auth

@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: httpbin-basic-auth
+  namespace: kong
+config:
+  hide_credentials: true
+  anonymous: anonymous  
+plugin: basic-auth

@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: httpbin-hmac-auth
+config:
+  hide_credentials: true
+  algorithms: 
+  - hmac-sha256
+plugin: hmac-auth

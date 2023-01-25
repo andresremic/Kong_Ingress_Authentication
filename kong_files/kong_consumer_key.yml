@@ -1,0 +1,21 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: kong
+  name: key-auth-user
+username: key-auth-user
+credentials:
+- key-auth-user-creds
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: key-auth-user-creds
+type: Opaque
+stringData:
+  kongCredType: key-auth
+  username: key-auth-user
+  key: key-secret #This has to be called "key". If you name it "secret", like in basic and hmac auth, the authentication fails.

@@ -1,0 +1,9 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: anonymous-request-termination
+  namespace: kong
+config:
+  message: "Authentication required"
+  status_code: 401
+plugin: request-termination
